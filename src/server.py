@@ -60,7 +60,7 @@ def criarProfessor():
     for campo in campos_obrigatorios:
         if campo not in dados or not dados[campo]:
             return jsonify({"mensagem": f"O campo '{campo}' é obrigatório e deve estar preenchido."}), 400
-    return jsonify({"mensagem": "Todos os campos obrigatórios estão preenchidos."}), 200
+    return jsonify(dados)
 
 
     
