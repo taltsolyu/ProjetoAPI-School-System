@@ -84,7 +84,6 @@ def merge_dicts(dict1, dict2):
                 merged[key] = value
         else:
             merged[key] = value  
-
     return merged
 
 @app.route("/professores/<int:idProfessor>", methods=['DELETE'])
