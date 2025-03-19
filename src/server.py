@@ -47,7 +47,7 @@ dici = {
     }
    
 @app.route("/professores", methods=["GET"])
-def getTodosProfessors():
+def getTodosProfessores():
   return jsonify(dici["professores"])
 
 @app.route("/professores",methods=["POST"])
@@ -59,14 +59,14 @@ def criarProfessor():
     return jsonify(dados)
 
 @app.route("/professores/<int:idProfessor>", methods=['GET'])
-def getByIdProfessor(idProfessor):
+def getPorIdProfessor(idProfessor):
     for professor in dici['professores']:
         if professor['id'] == idProfessor:
             return jsonify(professor)
     return jsonify(None), 204
 
 @app.route("/professores/<int:idProfessor>", methods=['PUT'])
-def updateProfessor(idProfessor):
+def attProfessor(idProfessor):
     professor = request.get_json()
     for i in range (0,len(dici['professores'])):
         if dici['professores'][i]['id'] == idProfessor:
@@ -84,7 +84,6 @@ def merge_dicts(dict1, dict2):
                 merged[key] = value
         else:
             merged[key] = value  
-
     return merged
 
 @app.route("/professores/<int:idProfessor>", methods=['DELETE'])
